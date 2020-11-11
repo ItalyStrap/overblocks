@@ -1,0 +1,17 @@
+{
+  "esversion": 9,
+  "curly": true,
+  "eqnull": true,
+  "eqeqeq": true,
+  "undef": true,
+  "globals": {
+	"jQuery": true,
+	"module": true,
+	"require": true,
+	"__dirname": true,
+	"console": true,
+	"document": true,
+	"exports": true,
+	"defaultConfig": true
+  }
+}

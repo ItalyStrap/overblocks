@@ -1,0 +1,38 @@
+{
+ "name": "overblocks",
+ "version": "0.1.0",
+ "description": "Only blocks you really need.",
+ "author": "Enea Overclokk",
+ "license": "GPL-2.0-or-later",
+ "keywords": [],
+ "homepage": "",
+ "repository": {
+  "type": ""
+ },
+ "bugs": {
+  "email": ""
+ },
+ "main": "build/index.js",
+ "types": "build-types",
+ "dependencies": {},
+ "devDependencies": {
+  "@types/wordpress__block-editor": "^2.2.9",
+  "@types/wordpress__blocks": "^6.4.12",
+  "@wordpress/blocks": "^6.24.1",
+  "@wordpress/scripts": "^12.5.0",
+  "react-script": "^2.0.5",
+  "ts-loader": "^8.0.11",
+  "typescript": "^4.0.5"
+ },
+ "scripts": {
+  "build": "wp-scripts build",
+  "format:js": "wp-scripts format-js",
+  "lint:css": "wp-scripts lint-style",
+  "lint:js": "wp-scripts lint-js",
+  "start": "wp-scripts start",
+  "lint:pkg-json": "wp-scripts lint-pkg-json",
+  "packages-update": "wp-scripts packages-update",
+  "test:e2e": "wp-scripts test-e2e",
+  "test:unit": "wp-scripts test-unit-js"
+ }
+}

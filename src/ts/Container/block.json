@@ -1,0 +1,30 @@
+{
+  "name": "overblocks/container",
+  "category": "layout",
+  "attributes": {
+	"tagName": {
+	  "type": "string",
+	  "default": "div"
+	},
+	"backgroundColor": {
+	  "type": "string"
+	}
+  },
+  "supports": {
+	"anchor": true,
+	"align": [
+	  "wide",
+	  "full"
+	],
+	"color": {
+	  "gradients": true,
+	  "link": true
+	},
+	"spacing": {
+	  "padding": true
+	}
+  },
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "style": "file:./build/style-index.css"
+}
