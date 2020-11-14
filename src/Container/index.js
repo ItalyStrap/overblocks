@@ -2,13 +2,14 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+// import { SVG, Rect, G, Path } from '@wordpress/components';
 
 /**
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './style.scss';
 
-import icon from './icon.svg';
+import icon from './icon.js';
 
 /**
  * Internal dependencies
@@ -41,10 +42,13 @@ export const settings = {
 		foreground: '#259ccb',
 		// Specifying an icon for the block
 		src: icon,
-		// src: 'smiley',
 	},
 
-	keywords: [ __( 'container', 'overblocks' ), __( 'wrapper', 'overblocks' ), __( 'box', 'overblocks' ) ],
+	keywords: [
+		__( 'container', 'overblocks' ),
+		__( 'wrapper', 'overblocks' ),
+		__( 'box', 'overblocks' )
+	],
 
 	/**
 	 * Optional block extended support features.

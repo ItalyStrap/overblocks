@@ -12,6 +12,11 @@
 	"console": true,
 	"document": true,
 	"exports": true,
-	"defaultConfig": true
+	"defaultConfig": true,
+	"describe": true,
+	"it": true,
+	"test": true,
+	"jest": true,
+	"expect": true
   }
 }

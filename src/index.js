@@ -17,7 +17,6 @@ const registerOverBlocks = () => {
 		container,
 	].forEach( ( { name, settings } ) => {
 
-		console.log( name, settings );
 			/**
 			 * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
 			 */

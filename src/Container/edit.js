@@ -13,6 +13,11 @@ import './editor.scss';
 // import PropsInterface from "../Interfaces/PropsInterface";
 // import HtmlAttrInterface from "./HtmlAttrInterface";
 
+/**
+ *
+ * @param props
+ * @returns {JSX.Element}
+ */
 export default function edit(props) {
 
 	const {
@@ -69,9 +74,9 @@ export default function edit(props) {
 						{label: "header", value: 'header'},
 						{label: "footer", value: 'footer'},
 						{label: "nav", value: 'nav'},
-						{label: "dl", value: 'dl'},
-						{label: "dd", value: 'dd'},
-						{label: "dt", value: 'dt'}
+						// {label: "dl", value: 'dl'},
+						// {label: "dd", value: 'dd'},
+						// {label: "dt", value: 'dt'}
 					]}
 					/>
 				</PanelBody>
@@ -82,7 +87,7 @@ export default function edit(props) {
 					renderAppender={(
 						hasInnerBlocks ?
 							undefined :
-							() => <InnerBlocks.ButtonBlockerAppender/>
+							() => <InnerBlocks.ButtonBlockAppender/>
 					)}
 				/>
 			</Tag>
