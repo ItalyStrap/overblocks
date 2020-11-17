@@ -21,7 +21,8 @@
 	  "link": true
 	},
 	"spacing": {
-	  "padding": true
+	  "padding": true,
+	  "margin": true
 	}
   },
   "editorScript": "file:./build/index.js",

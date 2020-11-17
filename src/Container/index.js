@@ -2,7 +2,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-// import { SVG, Rect, G, Path } from '@wordpress/components';
+import { createBlock } from '@wordpress/blocks';
 
 /**
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
@@ -31,7 +31,7 @@ export const settings = {
 	title: __( 'Container', 'overblocks' ),
 
 	description: __(
-		'Example block written with ESNext standard and JSX support – build step required.',
+		'Combine blocks into a container.',
 		'overblocks'
 	),
 
@@ -47,7 +47,8 @@ export const settings = {
 	keywords: [
 		__( 'container', 'overblocks' ),
 		__( 'wrapper', 'overblocks' ),
-		__( 'box', 'overblocks' )
+		__( 'section' ),
+		__( 'box', 'overblocks' ),
 	],
 
 	/**
@@ -61,19 +62,10 @@ export const settings = {
 			"link": true
 		},
 		"spacing": {
-			"padding": true
+			"padding": true,
+			"margin": true,
 		}
 	},
-
-	// attributes: {
-	// 	tagName: {
-	// 		type: 'string',
-	// 		default: "div"
-	// 	},
-	// 	backgroundColor: {
-	// 		type: 'string'
-	// 	}
-	// },
 
 	example: {
 		attributes: {
@@ -97,6 +89,35 @@ export const settings = {
 				},
 			},
 		],
+	},
+
+	transforms: {
+		from: [
+			{
+				type: 'block',
+				blocks: [ 'core/group' ],
+				transform: ( attributes, innerBlocks ) => {
+					return createBlock(
+						name,
+						attributes,
+						innerBlocks
+					);
+				},
+			},
+		],
+		to: [
+			{
+				type: 'block',
+				blocks: [ name ],
+				transform: ( attributes, innerBlocks ) => {
+					return createBlock(
+						'core/group',
+						attributes,
+						innerBlocks
+					);
+				},
+			},
+		]
 	},
 
 	// Register block styles.

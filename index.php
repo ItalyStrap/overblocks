@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     OverBlocks
- * Description:     Example block written with ESNext standard and JSX support – build step required.
+ * Description:     Only useful blocks
  * Version:         0.1.0
  * Author:          Enea Overclokk
  * License:         GPL-2.0-or-later
@@ -52,10 +52,10 @@ function create_block_overblocks_block_init() {
 		filemtime( "$dir/$style_css" )
 	);
 
-	register_block_type( 'overblocks/container', array(
+	register_block_type( 'overblocks/container', [
 		'editor_script' => 'overblocks-container-block-editor',
 		'editor_style'  => 'overblocks-container-block-editor',
 		'style'         => 'overblocks-container-block',
-	) );
+	] );
 }
 add_action( 'init', __NAMESPACE__ . '\create_block_overblocks_block_init' );

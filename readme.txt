@@ -1,5 +1,5 @@
 === Overblocks ===
-Contributors:      The WordPress Contributors
+Contributors:      Enea Overclokk
 Tags:              block
 Requires at least: 5.5.0
 Tested up to:      5.5.1
@@ -8,7 +8,7 @@ Requires PHP:      7.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Example block written with ESNext standard and JSX support – build step required.
+Only useful blocks
 
 == Description ==
 
