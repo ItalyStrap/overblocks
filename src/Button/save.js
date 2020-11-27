@@ -1,6 +1,7 @@
 import {
 	InnerBlocks,
 } from '@wordpress/block-editor';
+import {text} from "@wordpress/components/build/text/styles/text-mixins";
 
 /**
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
@@ -13,17 +14,12 @@ export default function save( props ) {
 
 	const {
 		tagName,
-		maxWidth,
+		text
 	} = attributes;
 
-	const Tag = tagName || "div";
+	const Tag = tagName || "a";
 
 	let style;
-
-	if ( maxWidth ) {
-		// Numbers are handled for backward compatibility as they can be still provided with templates.
-		style = { maxWidth: Number.isFinite( maxWidth ) ? maxWidth + '%' : maxWidth };
-	}
 
 	const htmlAttr = {
 		// id: "",
@@ -33,7 +29,7 @@ export default function save( props ) {
 
 	return (
 		<Tag { ...htmlAttr }>
-			<InnerBlocks.Content/>
+			{{text}}
 		</Tag>
 	);
 }

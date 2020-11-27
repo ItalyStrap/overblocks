@@ -55,7 +55,7 @@ function create_block_overblocks_block_init() {
 	register_block_type( 'overblocks/container', [
 		'editor_script' => 'overblocks-container-block-editor',
 		'editor_style'  => 'overblocks-container-block-editor',
-		'style'         => 'overblocks-container-block',
+//		'style'         => 'overblocks-container-block',
 	] );
 }
 add_action( 'init', __NAMESPACE__ . '\create_block_overblocks_block_init' );

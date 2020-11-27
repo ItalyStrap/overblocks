@@ -8,6 +8,7 @@ import {
 } from '@wordpress/blocks';
 
 import * as container from './Container';
+// import * as button from './Button';
 
 /**
  * Register blocks
@@ -15,6 +16,7 @@ import * as container from './Container';
 const registerOverBlocks = () => {
 	[
 		container,
+		// button,
 	].forEach( ( { name, settings } ) => {
 
 			/**

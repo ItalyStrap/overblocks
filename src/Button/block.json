@@ -1,24 +1,24 @@
 {
-  "name": "overblocks/container",
+  "name": "overblocks/button",
   "category": "layout",
   "attributes": {
+	"url": {
+	  "type": "string",
+	  "source": "attribute",
+	  "selector": "a",
+	  "attribute": "href"
+	},
 	"tagName": {
 	  "type": "string",
-	  "default": "div"
+	  "default": "a"
 	},
-	"maxWidth": {
-	  "type": "string"
-	},
-	"backgroundColor": {
+	"text": {
 	  "type": "string"
 	}
   },
   "supports": {
 	"anchor": true,
-	"align": [
-	  "wide",
-	  "full"
-	],
+	"align": true,
 	"color": {
 	  "gradients": true,
 	  "link": true

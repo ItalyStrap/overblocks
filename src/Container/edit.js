@@ -1,17 +1,24 @@
+import { __ } from '@wordpress/i18n';
 import {Fragment} from '@wordpress/element';
 import {useSelect} from '@wordpress/data';
 
-import {InnerBlocks, InspectorControls,} from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	InspectorControls,
+	useBlockProps,
+	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+} from '@wordpress/block-editor';
 
-import {PanelBody, SelectControl,} from '@wordpress/components';
+import {
+	PanelBody,
+	SelectControl,
+	__experimentalUnitControl as UnitControl
+} from '@wordpress/components';
 
 /**
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-
-// import PropsInterface from "../Interfaces/PropsInterface";
-// import HtmlAttrInterface from "./HtmlAttrInterface";
 
 /**
  *
@@ -23,13 +30,18 @@ export default function edit(props) {
 	const {
 		className,
 		attributes,
+		setAttributes,
 		clientId
 	} = props;
 
 	const {
 		tagName,
+		maxWidth,
 		// verticalAlignment
 	} = attributes;
+
+	const toggleAttribute = ( attributeName ) => ( newValue ) =>
+		setAttributes( { [ attributeName ]: newValue } );
 
 	const hasInnerBlocks = useSelect(
 		(select) => {
@@ -40,8 +52,10 @@ export default function edit(props) {
 		[clientId]
 	);
 
+	console.log(hasInnerBlocks);
+
 	const onChangeElem = (tagName) => {
-		props.setAttributes({tagName});
+		setAttributes({tagName});
 	};
 
 	// const onChangeVerticalAlignment = (verticalAlignment: string) => {
@@ -50,10 +64,26 @@ export default function edit(props) {
 
 	const Tag = tagName || "div";
 
+	const widthWithUnit = Number.isFinite( maxWidth ) ? maxWidth + '%' : maxWidth;
+
 	const htmlAttr = {
-		id: "",
+		// id: "",
 		className,
+		style: widthWithUnit ? { maxWidth: widthWithUnit } : undefined,
 	};
+
+	// const widthWithUnit = Number.isFinite( width ) ? width + '%' : width;
+	// const blockProps = useBlockProps( {
+	// 	className,
+	// 	// className: classes,
+	// 	style: widthWithUnit ? { maxWidth: widthWithUnit } : undefined,
+	// } );
+	// const innerBlocksProps = useInnerBlocksProps( blockProps, {
+	// 	// templateLock,
+	// 	// renderAppender: hasChildBlocks
+	// 	// 	? undefined
+	// 	// 	: InnerBlocks.ButtonBlockAppender,
+	// } );
 
 	return (
 		<Fragment>
@@ -64,7 +94,7 @@ export default function edit(props) {
 			{/*	/>*/}
 			{/*</BlockControls>*/}
 			<InspectorControls>
-				<PanelBody title="Element Type">
+				<PanelBody title={ __( 'Element Type', 'overblocks' ) }>
 					<SelectControl value={tagName} onChange={onChangeElem} options={[
 						{label: "div", value: "div"},
 						{label: "section", value: 'section'},
@@ -80,8 +110,22 @@ export default function edit(props) {
 					]}
 					/>
 				</PanelBody>
+				<PanelBody title={ __( 'Dimension' ) }>
+					<UnitControl
+						label={ __( 'Width' ) }
+						labelPosition="edge"
+						__unstableInputWidth="80px"
+						value={ maxWidth || '' }
+						onChange={ ( nextWidth ) => {
+							nextWidth =
+								0 > parseFloat( nextWidth ) ? '0' : nextWidth;
+							setAttributes( { maxWidth: nextWidth } );
+						} }
+					/>
+				</PanelBody>
 			</InspectorControls>
 
+			{/*<Tag {...htmlAttr}>*/}
 			<Tag {...htmlAttr}>
 				<InnerBlocks
 					renderAppender={(

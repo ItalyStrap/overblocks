@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///editor.scss"],"names":[],"mappings":"AAAA;EACE,kBAAkB,EAAE","file":"index.css","sourcesContent":[".wp-block-overblocks-container {\n  min-height: 1.5rem; }\n"],"sourceRoot":""}
