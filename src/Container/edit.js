@@ -1,3 +1,5 @@
+import classnames from 'classnames';
+
 import { __ } from '@wordpress/i18n';
 import {Fragment} from '@wordpress/element';
 import {useSelect} from '@wordpress/data';
@@ -37,11 +39,9 @@ export default function edit(props) {
 	const {
 		tagName,
 		maxWidth,
+		minHeight,
 		// verticalAlignment
 	} = attributes;
-
-	const toggleAttribute = ( attributeName ) => ( newValue ) =>
-		setAttributes( { [ attributeName ]: newValue } );
 
 	const hasInnerBlocks = useSelect(
 		(select) => {
@@ -52,9 +52,7 @@ export default function edit(props) {
 		[clientId]
 	);
 
-	console.log(hasInnerBlocks);
-
-	const onChangeElem = (tagName) => {
+	const onChangeTagName = (tagName) => {
 		setAttributes({tagName});
 	};
 
@@ -66,10 +64,25 @@ export default function edit(props) {
 
 	const widthWithUnit = Number.isFinite( maxWidth ) ? maxWidth + '%' : maxWidth;
 
+	// const blockProps = useBlockProps( {
+	// 	className,
+	// 	style: widthWithUnit ? { maxWidth: widthWithUnit } : undefined,
+	// } );
+
 	const htmlAttr = {
-		// id: "",
 		className,
-		style: widthWithUnit ? { maxWidth: widthWithUnit } : undefined,
+		// style: widthWithUnit ? { maxWidth: widthWithUnit } : undefined,
+		style: {
+			maxWidth: widthWithUnit
+		},
+	};
+
+	function parseValueToZero(nextWidth) {
+		return ( 0 > parseFloat(nextWidth) ) ? '0' : nextWidth;
+	}
+
+	const onChangeUnitControl = ( attributeName ) => ( nextWidth ) => {
+		setAttributes( { [ attributeName ]: parseValueToZero(nextWidth) } );
 	};
 
 	// const widthWithUnit = Number.isFinite( width ) ? width + '%' : width;
@@ -95,7 +108,7 @@ export default function edit(props) {
 			{/*</BlockControls>*/}
 			<InspectorControls>
 				<PanelBody title={ __( 'Element Type', 'overblocks' ) }>
-					<SelectControl value={tagName} onChange={onChangeElem} options={[
+					<SelectControl value={tagName} onChange={onChangeTagName} options={[
 						{label: "div", value: "div"},
 						{label: "section", value: 'section'},
 						{label: "main", value: 'main'},
@@ -112,21 +125,17 @@ export default function edit(props) {
 				</PanelBody>
 				<PanelBody title={ __( 'Dimension' ) }>
 					<UnitControl
-						label={ __( 'Width' ) }
+						label={ __( 'Max width' ) }
 						labelPosition="edge"
 						__unstableInputWidth="80px"
 						value={ maxWidth || '' }
-						onChange={ ( nextWidth ) => {
-							nextWidth =
-								0 > parseFloat( nextWidth ) ? '0' : nextWidth;
-							setAttributes( { maxWidth: nextWidth } );
-						} }
+						onChange={onChangeUnitControl("maxWidth")}
 					/>
 				</PanelBody>
 			</InspectorControls>
 
-			{/*<Tag {...htmlAttr}>*/}
 			<Tag {...htmlAttr}>
+			{/*<Tag {...blockProps}>*/}
 				<InnerBlocks
 					renderAppender={(
 						hasInnerBlocks ?

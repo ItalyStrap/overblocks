@@ -9,6 +9,9 @@
 	"maxWidth": {
 	  "type": "string"
 	},
+	"minHeight": {
+	  "type": "string"
+	},
 	"backgroundColor": {
 	  "type": "string"
 	}
