@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:     OverBlocks
- * Description:     Only useful blocks
- * Version:         0.1.0
+ * Description:     Only useful Gutenberg blocks
+ * Version:         1.0.0
  * Author:          Enea Overclokk
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html

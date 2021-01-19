@@ -1,57 +1,58 @@
 === Overblocks ===
 Contributors:      Enea Overclokk
+Donate link:	   https://italystrap.com/
 Tags:              block
 Requires at least: 5.5.0
-Tested up to:      5.5.1
-Stable tag:        0.1.0
+Tested up to:      5.6.0
+Stable tag:        1.0.0
 Requires PHP:      7.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Only useful blocks
+Only useful Gutenberg blocks
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+For now this plugin adds a block container to use instead of the groups block.
+The block container is a simple HTML element you can use for wrapping other elements and style it with your CSS.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+= Upload =
 
-e.g.
+1. Download the latest [tagged archive](https://github.com/ItalyStrap/overblocks/releases) (choose the "zip" option) or the [latest from WP.org](https://wordpress.org/plugins/overblocks/).
+2. Go to the Plugins -> Add New screen and click the Upload tab.
+3. Upload the zipped archive directly.
+4. Go to the Plugins screen and click Activate.
 
-1. Upload the plugin files to the `/wp-content/plugins/overblocks` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+= Manual =
 
+1. Download the latest [tagged archive](https://github.com/ItalyStrap/overblocks/releases) (choose the "zip" option) or the [latest from WP.org](https://wordpress.org/plugins/overblocks/).
+2. Unzip the archive.
+3. Copy the folder to your /wp-content/plugins/ directory.
+4. Go to the Plugins screen and click Activate.
 
-== Frequently Asked Questions ==
+= WP.org =
 
-= A question that someone might have =
+1. Install Overblocks either via the WordPress.org plugin directory, or by uploading the files to the `/wp-content/plugins/` directory in your server.
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Activate your desired functionality from Overblocks option page.
+4. After activating Overblocks, read the documentation for any kind of customization.
+5. That's it.  You're ready to go!
 
-An answer to that question.
+= Git =
 
-= What about foo bar? =
+Using git, browse to your `/wp-content/plugins/` directory and clone this repository:
 
-Answer to foo bar dilemma.
+`git clone https://github.com/ItalyStrap/overblocks.git overblocks`
 
-== Screenshots ==
+`cd overblocks`
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+`npm install`
+
+Then go to your Plugins screen and click Activate.
 
 == Changelog ==
 
-= 0.1.0 =
-* Release
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+= 1.0.0 =
+* First Release
